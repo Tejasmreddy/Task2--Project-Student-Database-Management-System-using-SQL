@@ -1,11 +1,6 @@
+-- Task2 Project: Student Database Management System(Mysql) Objective: Design and implement a student database management system using PostgreSQL that allows storing and retrieving student information efficiently. The project will include the following tasks:
 
-
-1.Database Setup
-Create a database named "student_database."
-Create a table called " student_table " with the following columns: Student_id (integer),
-Stu_name (text), Department (text), email_id (text ),Phone_no (numeric), Address (text),
-Date_of_birth (date), Gender (text), Major (text), GPA (numeric),Grade (text) should be A,B,C
-etc.
+-- 1.Database Setup Create a database named "student_database." Create a table called " student_table " with the following columns: Student_id (integer), Stu_name (text), Department (text), email_id (text ),Phone_no (numeric), Address (text), Date_of_birth (date), Gender (text), Major (text), GPA (numeric),Grade (text) should be A,B,C etc.
 
 CREATE TABLE student_table (
     Student_id INTEGER PRIMARY KEY,
@@ -20,8 +15,7 @@ CREATE TABLE student_table (
     GPA NUMERIC(3,2),
     Grade TEXT CHECK (Grade IN ('A', 'B', 'C'))
 
-2.Data Entry
-Insert 10 sample records into the "student_table" using INSERT command.
+-- 2.Data Entry Insert 10 sample records into the "student_table" using INSERT command.
 
 INSERT INTO student_table 
 (Student_id, Stu_name, Department, email_id, Phone_no, Address, Date_of_birth, Gender, Major, GPA, Grade) 
@@ -38,7 +32,7 @@ VALUES
 (10, 'Olivia White', 'Computer Science', 'olivia.w@email.com', 9876543210, '741 Palm St', '2001-06-08', 'Female', 'AI', 9.8, 'A');
 
 
-3.Student Information Retrieval
+-- 3.Student Information Retrieval
 Develop a query to retrieve all students' information from the "student_table" and sort them in
 descending order by their grade.
 
@@ -47,8 +41,7 @@ from student_table
 order by grade desc
 
 
-4.Query for Male Students:
-.Implement a query to retrieve information about all male students from the "student_table."
+-- 4.Query for Male Students: .Implement a query to retrieve information about all male students from the "student_table."
 
 INSERT INTO student_table 
 (Student_id, Stu_name, Department, email_id, Phone_no, Address, Date_of_birth, Gender, Major, GPA, Grade) 
@@ -62,9 +55,7 @@ where gpa < 5.0
 
 
 
-5.Query for Students with GPA less than 5.0
-Create a query to fetch the details of students who have a GPA less than 5.0 from the
-"student_table."
+-- 5.Query for Students with GPA less than 5.0 Create a query to fetch the details of students who have a GPA less than 5.0 from the "student_table."
 
 
 INSERT INTO student_table 
@@ -78,10 +69,7 @@ from student_table
 where gpa < 5.0
 
 
-6.Update Student Email and Grade
-Write an update statement to modify the email and grade of a student with a specific ID in the
-"student_table."
-
+-- 6.Update Student Email and Grade Write an update statement to modify the email and grade of a student with a specific ID in the "student_table."
 
 
 select stu_name, date_of_birth,grade,
@@ -90,9 +78,7 @@ from student_table
 where grade = 'b'
 
 
-7.Query for Students with Grade "B"
-Develop a query to retrieve the names and ages of all students who have a grade of "B" from
-the "student_table."
+-- 7.Query for Students with Grade "B" Develop a query to retrieve the names and ages of all students who have a grade of "B" from the "student_table."
 
 select stu_name, date_of_birth,grade,
 timestampdiff(year, date_of_birth, curdate()) as age
@@ -100,9 +86,7 @@ from student_table
 where grade = 'b'
 
 
-8.Grouping and Calculation
-Create a query to group the "student_table" by the "Department" and "Gender" columns and
-calculate the average GPA for each combination.
+-- 8.Grouping and Calculation Create a query to group the "student_table" by the "Department" and "Gender" columns and calculate the average GPA for each combination.
 
 
 select department, gender, count(gender) as totalgender, round(avg(gpa),2) as averagegpa
@@ -111,16 +95,13 @@ group by department, gender
 order by department, gender
 
 
-9.Table Renaming
-Rename the "student_table" to "student_info" using the appropriate SQL statement.
+-- 9.Table Renaming Rename the "student_table" to "student_info" using the appropriate SQL statement.
 
 
 Alter table student_table
 rename to student_info
 
-10.Retrieve Student with Highest GPA
-Write a query to retrieve the name of the student with the highest GPA from the
-"student_info" table
+-- 10.Retrieve Student with Highest GPA Write a query to retrieve the name of the student with the highest GPA from the "student_info" table
 
 select*
 from student_info
